@@ -1,8 +1,10 @@
+import NavBar from "./NavBar/NavBar";
+
 function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <div className="container mx-auto">
+      <NavBar></NavBar>
+    </div>
   );
 }
 
