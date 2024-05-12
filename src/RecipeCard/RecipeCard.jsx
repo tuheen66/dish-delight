@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { FaRegClock, FaFire } from "react-icons/fa6";
 
+
 const RecipeCard = ({ recipe, handleWantToToCook }) => {
   const {
-    
     image,
     name,
     short_description,
@@ -52,6 +52,7 @@ const RecipeCard = ({ recipe, handleWantToToCook }) => {
         >
           Want to Cook
         </button>
+       
       </div>
     </div>
   );

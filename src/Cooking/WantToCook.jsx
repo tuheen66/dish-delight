@@ -1,6 +1,11 @@
 /* eslint-disable react/prop-types */
-const WantToCook = ({ wantToCook }) => {
-  const { name, preparing_time, calories } = wantToCook;
+
+
+
+const WantToCook = ({ wantToCook, handlePreparing }) => {
+  const { id, name, preparing_time, calories } = wantToCook;
+
+ 
 
   return (
     <div className="flex flex-col lg:flex-row items-center  bg-[#28282808]">
@@ -20,7 +25,7 @@ const WantToCook = ({ wantToCook }) => {
       </table>
       <div>
         <button
-          // onClick={() => handlePreparing(id)}
+          onClick={() => handlePreparing(id)}
           className="bg-[#0BE58A] py-1 border-2 px-4 rounded-full font-bold text-black hover:bg-transparent hover:text-black [#0BE58A] hover:border-[#0BE58A]"
         >
           Preparing

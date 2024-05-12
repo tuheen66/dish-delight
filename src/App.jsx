@@ -3,10 +3,12 @@ import Banner from "./Banner/Banner";
 import CookingContainer from "./Cooking/CookingContainer";
 import NavBar from "./NavBar/NavBar";
 import RecipesContainer from "./RecipesContainer/RecipesContainer";
-import swal from "sweetalert";
+import { ToastContainer, toast } from "react-toast";
 
 function App() {
   const [wantToCook, setWantToCook] = useState([]);
+
+  const [currentlyCookings, setCurrentlyCookings] = useState([]);
 
   const handleWantToToCook = ({ recipe }) => {
     const ifExists = wantToCook.find((item) => item.id == recipe.id);
@@ -14,8 +16,20 @@ function App() {
       const newRecipe = [...wantToCook, recipe];
       setWantToCook(newRecipe);
     } else {
-      swal("You already added this to your want to cook list!");
+      const warn = () =>
+        toast.warn("You already added this to your want to cook list!");
+      warn();
     }
+  };
+
+  const handlePreparing = (id) => {
+    const nowCooking = wantToCook.filter((item) => item.id === id);
+
+    const newCurrentlyCooking = [...currentlyCookings, nowCooking];
+    setCurrentlyCookings(newCurrentlyCooking);
+
+    const remaining = wantToCook.filter((item) => item.id !== id);
+    setWantToCook(remaining);
   };
 
   return (
@@ -32,12 +46,18 @@ function App() {
         </p>
       </div>
 
+      <ToastContainer position={"top-right"} delay={3000} />
+
       <div className="flex flex-col lg:flex-row gap-8 justify-between mb-20 mx-4 ">
         <RecipesContainer
           handleWantToToCook={handleWantToToCook}
         ></RecipesContainer>
 
-        <CookingContainer wantToCook={wantToCook}></CookingContainer>
+        <CookingContainer
+          wantToCook={wantToCook}
+          handlePreparing={handlePreparing}
+          currentlyCookings={currentlyCookings}
+        ></CookingContainer>
       </div>
     </div>
   );

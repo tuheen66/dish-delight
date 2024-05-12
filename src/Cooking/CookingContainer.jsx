@@ -1,10 +1,15 @@
 /* eslint-disable react/prop-types */
+import CurrentlyCooking from "./CurrentlyCooking";
 import WantToCook from "./WantToCook";
 
-
-const CookingContainer = ({wantToCook}) => {
-    return (
-        <div className=" lg:w-[550px]  border-2 rounded-xl text-[#282828] shadow-xl shadow-green-200 ">
+const CookingContainer = ({
+  wantToCook,
+  handlePreparing,
+  currentlyCookings,
+  
+}) => {
+  return (
+    <div className=" lg:w-[550px]  border-2 rounded-xl text-[#282828] shadow-xl shadow-green-200 ">
       <div>
         <h2 className="text-center font-bold mb-2 py-4 text-2xl">
           Want to cook: <span> </span>
@@ -25,13 +30,14 @@ const CookingContainer = ({wantToCook}) => {
                 </tr>
               </tbody>
             </table>
-           {
-            wantToCook.map(wantToCook=><WantToCook 
-            key={wantToCook.id}
-            wantToCook={wantToCook}
-            ></WantToCook>)
-           }
-           
+            {wantToCook.map((wantToCook) => (
+              <WantToCook
+                key={wantToCook.id}
+                wantToCook={wantToCook}
+                handlePreparing={handlePreparing}
+                
+              ></WantToCook>
+            ))}
           </div>
         </div>
       </div>
@@ -57,7 +63,9 @@ const CookingContainer = ({wantToCook}) => {
         </table>
       </div>
 
-      
+      {currentlyCookings.map((nowCooking, idx) => (
+        <CurrentlyCooking key={idx} nowCooking={nowCooking}></CurrentlyCooking>
+      ))}
 
       <div className="flex justify-end gap-4 md:gap-32 lg:gap-16  px-2 md:px-28 lg:px-12 font-bold text-[#282828CC]">
         <p>
@@ -70,7 +78,7 @@ const CookingContainer = ({wantToCook}) => {
         </p>
       </div>
     </div>
-    );
+  );
 };
 
 export default CookingContainer;

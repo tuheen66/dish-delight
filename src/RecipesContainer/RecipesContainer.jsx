@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
 
 // eslint-disable-next-line react/prop-types
-const RecipesContainer = ({handleWantToToCook}) => {
+const RecipesContainer = ({ handleWantToToCook }) => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -11,15 +11,15 @@ const RecipesContainer = ({handleWantToToCook}) => {
       .then((data) => setRecipes(data));
   }, []);
 
-   
-
   return (
     <div className=" lg:w-[750px] grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 lg:mb-0">
       {recipes.map((recipe) => (
-        <RecipeCard key={recipe.id} recipe={recipe} handleWantToToCook={handleWantToToCook}></RecipeCard>
+        <RecipeCard
+          key={recipe.id}
+          recipe={recipe}
+          handleWantToToCook={handleWantToToCook}
+        ></RecipeCard>
       ))}
-
-     
     </div>
   );
 };
