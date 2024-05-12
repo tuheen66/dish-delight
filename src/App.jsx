@@ -1,9 +1,23 @@
+import { useState } from "react";
 import Banner from "./Banner/Banner";
 import CookingContainer from "./Cooking/CookingContainer";
 import NavBar from "./NavBar/NavBar";
 import RecipesContainer from "./RecipesContainer/RecipesContainer";
+import swal from "sweetalert";
 
 function App() {
+  const [wantToCook, setWantToCook] = useState([]);
+
+  const handleWantToToCook = ({ recipe }) => {
+    const ifExists = wantToCook.find((item) => item.id == recipe.id);
+    if (!ifExists) {
+      const newRecipe = [...wantToCook, recipe];
+      setWantToCook(newRecipe);
+    } else {
+      swal("You already added this to your want to cook list!");
+    }
+  };
+
   return (
     <div className="container mx-auto">
       <NavBar></NavBar>
@@ -19,9 +33,11 @@ function App() {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between mb-20 mx-4 ">
-      <RecipesContainer></RecipesContainer>
-      <CookingContainer></CookingContainer>
+        <RecipesContainer
+          handleWantToToCook={handleWantToToCook}
+        ></RecipesContainer>
 
+        <CookingContainer wantToCook={wantToCook}></CookingContainer>
       </div>
     </div>
   );

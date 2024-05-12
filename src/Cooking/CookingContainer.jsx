@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+import WantToCook from "./WantToCook";
 
 
-const CookingContainer = () => {
+const CookingContainer = ({wantToCook}) => {
     return (
         <div className=" lg:w-[550px]  border-2 rounded-xl text-[#282828] shadow-xl shadow-green-200 ">
       <div>
@@ -23,7 +25,12 @@ const CookingContainer = () => {
                 </tr>
               </tbody>
             </table>
-
+           {
+            wantToCook.map(wantToCook=><WantToCook 
+            key={wantToCook.id}
+            wantToCook={wantToCook}
+            ></WantToCook>)
+           }
            
           </div>
         </div>
