@@ -1,4 +1,5 @@
 import Banner from "./Banner/Banner";
+import CookingContainer from "./Cooking/CookingContainer";
 import NavBar from "./NavBar/NavBar";
 import RecipesContainer from "./RecipesContainer/RecipesContainer";
 
@@ -19,6 +20,7 @@ function App() {
 
       <div className="flex flex-col lg:flex-row gap-8 justify-between mb-20 mx-4 ">
       <RecipesContainer></RecipesContainer>
+      <CookingContainer></CookingContainer>
 
       </div>
     </div>
