@@ -8,16 +8,16 @@ const WantToCook = ({ wantToCook, handlePreparing }) => {
  
 
   return (
-    <div className="flex flex-col lg:flex-row items-center  bg-[#28282808]">
+    <div className="flex flex-col lg:flex-row lg:justify-center lg:gap-2 lg:px-2 items-center pb-4 mb-8 lg:pb-0 lg:mb-0 bg-[#28282808]">
       <table className="flex items-center mb py-2">
         <tbody className="w-full text-[#878787] ">
           <tr className="py-4 flex gap-6">
-            <td className="w-[4%] text-center  px-2">1 </td>
-            <td className="w-[24%] text-center  px-2">{name} </td>
-            <td className="w-[24%] text-center  px-2">
+            
+            <td className="w-[25%] text-center  lg:px-8">{name} </td>
+            <td className="w-[25%] text-center  px-2">
               <span>{preparing_time} </span> minutes
             </td>
-            <td className="w-[24%] text-center px-2">
+            <td className="w-[25%] text-center ">
               <span>{calories} </span>Calories
             </td>
           </tr>

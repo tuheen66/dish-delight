@@ -3,7 +3,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 const NavBar = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-4 justify-between items-center py-4">
+    <div className="flex flex-col lg:flex-row gap-4 justify-between items-center py-6">
       <h2 className="font-extrabold text-4xl text-[#0be58a]  ">Dish Delight</h2>
 
       <div className="flex list-none gap-16 justify-center items-center text-lg text-[#150B2BB3] ">

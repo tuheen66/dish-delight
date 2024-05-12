@@ -6,7 +6,8 @@ const CookingContainer = ({
   wantToCook,
   handlePreparing,
   currentlyCookings,
-  
+  preparingTime,
+  calories,
 }) => {
   return (
     <div className=" lg:w-[550px]  border-2 rounded-xl text-[#282828] shadow-xl shadow-green-200 ">
@@ -22,11 +23,11 @@ const CookingContainer = ({
             <table className="w-full mb-2">
               <tbody>
                 <tr className="text-[#878787] ">
-                  <td className="w-[4%]  px-2"> </td>
-                  <td className="w-[24%] px-2 lg:pl-10">Name</td>
-                  <td className="w-[24%]  px-2 lg:pl-10">Time </td>
-                  <td className="w-[24%]  px-2 lg:pl-10">Calories </td>
-                  <td className="w-[24%]"></td>
+                  
+                  <td className="w-[25%] text-start pl-10 lg:pl-8">Name</td>
+                  <td className="w-[25%] text-start pl-16 lg:pl-10">Time </td>
+                  <td className="w-[25%] text-start pl-16 lg:pl-6">Calories </td>
+                  <td className="w-[25%]"></td>
                 </tr>
               </tbody>
             </table>
@@ -35,7 +36,6 @@ const CookingContainer = ({
                 key={wantToCook.id}
                 wantToCook={wantToCook}
                 handlePreparing={handlePreparing}
-                
               ></WantToCook>
             ))}
           </div>
@@ -70,11 +70,11 @@ const CookingContainer = ({
       <div className="flex justify-end gap-4 md:gap-32 lg:gap-16  px-2 md:px-28 lg:px-12 font-bold text-[#282828CC]">
         <p>
           Total Time = <br />
-          <span></span> minutes
+          <span>{preparingTime}</span> minutes
         </p>
         <p>
           Total Calories = <br />
-          <span> </span> calories
+          <span>{calories} </span> calories
         </p>
       </div>
     </div>

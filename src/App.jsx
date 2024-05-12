@@ -10,6 +10,10 @@ function App() {
 
   const [currentlyCookings, setCurrentlyCookings] = useState([]);
 
+  const [preparingTime, setPreparingTime] = useState(0);
+
+  const [calories, setCalories] = useState(0);
+
   const handleWantToToCook = ({ recipe }) => {
     const ifExists = wantToCook.find((item) => item.id == recipe.id);
     if (!ifExists) {
@@ -24,6 +28,14 @@ function App() {
 
   const handlePreparing = (id) => {
     const nowCooking = wantToCook.filter((item) => item.id === id);
+
+    const newPreparingTime = preparingTime + nowCooking[0].preparing_time;
+
+    setPreparingTime(newPreparingTime);
+
+    const newCalories = calories + nowCooking[0].calories;
+
+    setCalories(newCalories);
 
     const newCurrentlyCooking = [...currentlyCookings, nowCooking];
     setCurrentlyCookings(newCurrentlyCooking);
@@ -57,6 +69,8 @@ function App() {
           wantToCook={wantToCook}
           handlePreparing={handlePreparing}
           currentlyCookings={currentlyCookings}
+          preparingTime={preparingTime}
+          calories={calories}
         ></CookingContainer>
       </div>
     </div>

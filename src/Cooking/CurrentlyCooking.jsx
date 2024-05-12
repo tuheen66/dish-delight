@@ -8,7 +8,7 @@ const CurrentlyCooking = ({nowCooking}) => {
       <table className="w-full mb-2">
         <tbody>
           <tr className="text-[#878787] flex">
-            <td className="w-[4%] px-2">1</td>
+            <td className="w-[4%] px-2"></td>
             <td className="w-[32%] px-2">{name}</td>
             <td className="w-[32%] px-2">
               <span>{preparing_time} </span>Minutes
