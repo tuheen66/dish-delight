@@ -24,9 +24,9 @@ const CookingContainer = ({
               <tbody>
                 <tr className="text-[#878787] ">
                   
-                  <td className="w-[25%] text-start pl-10 lg:pl-8">Name</td>
-                  <td className="w-[25%] text-start pl-16 lg:pl-10">Time </td>
-                  <td className="w-[25%] text-start pl-16 lg:pl-6">Calories </td>
+                  <td className="w-[25%] text-start pl-16 md:pl-24 lg:pl-8">Name</td>
+                  <td className="w-[25%] text-start md:pl-36 pl-16 lg:pl-10">Time </td>
+                  <td className="w-[25%] text-start md:pl-40 pl-16 lg:pl-6">Calories </td>
                   <td className="w-[25%]"></td>
                 </tr>
               </tbody>
@@ -55,9 +55,9 @@ const CookingContainer = ({
           <tbody className="mb-4 ">
             <tr className="text-[#878787] w-full mb-2">
               <td className="w-[4%] px-2"></td>
-              <td className="w-[32%] lg:pl-4">Name</td>
-              <td className="w-[32%] lg:pl-12">Time</td>
-              <td className="w-[32%] lg:pl-20">Calories</td>
+              <td className="w-[32%] md:pl-16 lg:pl-4">Name</td>
+              <td className="w-[32%] md:pl-24 lg:pl-12">Time</td>
+              <td className="w-[32%] md:pl-32 lg:pl-20">Calories</td>
             </tr>
           </tbody>
         </table>
@@ -67,7 +67,7 @@ const CookingContainer = ({
         <CurrentlyCooking key={idx} nowCooking={nowCooking}></CurrentlyCooking>
       ))}
 
-      <div className="flex justify-end gap-4 md:gap-32 lg:gap-16  px-2 md:px-28 lg:px-12 font-bold text-[#282828CC]">
+      <div className="flex justify-end gap-4 md:gap-32 lg:gap-16 mt-8 px-2 md:px-28 lg:px-12 font-bold text-[#282828CC]">
         <p>
           Total Time = <br />
           <span>{preparingTime}</span> minutes
